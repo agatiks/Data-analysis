@@ -1,0 +1,8 @@
+,v,mape,code
+0,1,0.8897828676220548,"def make_features(data, dop = None):
+    new_data = data.copy()
+    features = ['lat', 'lng']
+    minmax(new_data, 'lat')
+    minmax(new_data, 'lng')
+    return new_data, features
+"

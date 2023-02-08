@@ -1,0 +1,25 @@
+,v,mape,code
+0,2,0.9997586804834099,"def make_features(data,  test = False, dop = None):
+    new_data = data.copy()
+    features = ['osm_city_nearest_population', 'osm_catering_points_in_0.005', 'osm_amenity_points_in_0.005',
+       'osm_amenity_points_in_0.01', 'osm_amenity_points_in_0.0075',
+       'osm_catering_points_in_0.0075', 'osm_catering_points_in_0.01',
+       'osm_leisure_points_in_0.01', 'osm_healthcare_points_in_0.01',
+       'osm_shops_points_in_0.01', 'osm_amenity_points_in_0.001',
+       'osm_healthcare_points_in_0.0075', 'osm_shops_points_in_0.0075',
+       'osm_shops_points_in_0.005', 'osm_crossing_points_in_0.01',
+       'osm_transport_stop_points_in_0.01', 'osm_finance_points_in_0.01',
+       'osm_catering_points_in_0.001', 'osm_offices_points_in_0.01',
+       'osm_leisure_points_in_0.0075', 'osm_finance_points_in_0.0075',
+       'osm_healthcare_points_in_0.005', 'osm_crossing_points_in_0.0075',
+       'osm_offices_points_in_0.0075', 'osm_finance_points_in_0.005',
+       'osm_offices_points_in_0.005', 'osm_transport_stop_points_in_0.0075',
+       'osm_crossing_points_in_0.005', 'osm_leisure_points_in_0.005']
+    if not test:
+        target_scaling_df(new_data)
+        #new_data.drop(new_data[new_data[target] > 250000].index, inplace = True)
+    minmax(new_data, features[0])
+    minmax(new_data, features[1])
+    new_data[features[0]].fillna(new_data[features[0]].mean(), inplace = True) # очень небольшой процент nan
+    return new_data, features
+"
